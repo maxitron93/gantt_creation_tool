@@ -4,9 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Gantt Planner</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+  
+  <title>Project Planner</title>
 </head>
 <body>
-  <h1>Hello!No!Maybe!Yay!Will this one work?Maybe</h1>
+  <div class="section-settings">
+    <div class="settings-top">
+      <h1 class="project-name">Project name</h1>
+      <h3 class="save"><input type="email", required, value="insert email"> <span class="btn-save">Save</span></h3>
+    </div>
+    <div class="settings-bottom">
+      <div class="project-details">
+        <h3>Start date <input class="date-field" type="date" required></h3>
+        <h3>End date <input class="date-field" type="date" required></h3>
+      </div>
+      <div class="display-settings">
+        <h3>Show main grid lines <ion-icon name="square-outline"></ion-icon></h3>
+        <h3>Show sub grid lines <ion-icon name="square-outline"></ion-icon></h3>
+        <h3>Row spacing <ion-icon name="remove-circle"></ion-icon><ion-icon name="add-circle"></ion-icon></h3>
+      </div>
+    </div>  
+  </div>
+
+  <div class="section-chart">
+    
+    <div class="container-gridlines">
+      <div class="spacing"></div>
+      <div class="one-gidline"></div>
+      <div class="one-gidline"></div>
+      <div class="one-gidline"></div>
+      <div class="one-gidline"></div>
+      <div class="one-gidline"></div>
+      <div class="one-gidline"></div>
+      <div class="one-gidline"></div>
+    </div>
+    
+    <div class="container-rows">
+      
+      <div class="row row-task">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class=text-area>
+          <input class="text-field" type="text" tabindex="1">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class=timeline></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-task">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class=text-area>
+          <input class="text-field" type="text" tabindex="2">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class=timeline></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-deadline">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class=text-area>
+          <input class="text-field" type="text" tabindex="3">
+        </div>
+        <div class="timing-area">
+          <div class="container-deadline">
+            <div class="deadline"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row row-task">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class=text-area>
+          <input class="text-field" type="text" tabindex="4">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class=timeline></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-task">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class=text-area>
+          <input class="text-field" type="text" tabindex="5">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class=timeline></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-deadline">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class=text-area>
+          <input class="text-field" type="text" tabindex="6">
+        </div>
+        <div class="timing-area">
+          <div class="container-deadline">
+            <div class="deadline"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  
 </body>
 </html>
