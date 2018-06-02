@@ -30,23 +30,26 @@
 
   <div class="section-chart">
     
-    <div class="container-gridlines">
-      <div class="spacing"></div>
-      <div class="one-gidline"></div>
-      <div class="one-gidline"></div>
-      <div class="one-gidline"></div>
-      <div class="one-gidline"></div>
-      <div class="one-gidline"></div>
-      <div class="one-gidline"></div>
-      <div class="one-gidline"></div>
-    </div>
-    
     <div class="container-rows">
+    
       
+      <div class="container-gidlines">
+        <div class="spacing"></div>
+        <div class="gridlines-outer">
+          <div class="gridlines-inner">
+              <div class="one-gidline"></div>
+              <div class="one-gidline"></div>
+              <div class="one-gidline"></div>
+              <div class="one-gidline"></div>
+          </div>
+        </div>
+      </div>
+      
+
       <div class="row row-task">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
         <div class=text-area>
-          <input class="text-field" type="text" tabindex="1">
+          <input class="text-field" type="text">
         </div>
         <div class="timing-area">
           <div class="container-timeline">
@@ -55,10 +58,10 @@
         </div>
       </div>
 
-      <div class="row row-task">
+      <div class="row row-task" tabindex="-1">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
         <div class=text-area>
-          <input class="text-field" type="text" tabindex="2">
+          <input class="text-field" type="text">
         </div>
         <div class="timing-area">
           <div class="container-timeline">
@@ -67,10 +70,10 @@
         </div>
       </div>
 
-      <div class="row row-deadline">
+      <div class="row row-deadline" tabindex="-1">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
         <div class=text-area>
-          <input class="text-field" type="text" tabindex="3">
+          <input class="text-field-deadline" type="text">
         </div>
         <div class="timing-area">
           <div class="container-deadline">
@@ -80,10 +83,10 @@
       </div>
 
 
-      <div class="row row-task">
+      <div class="row row-task" tabindex="-1">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
         <div class=text-area>
-          <input class="text-field" type="text" tabindex="4">
+          <input class="text-field" type="text">
         </div>
         <div class="timing-area">
           <div class="container-timeline">
@@ -92,10 +95,10 @@
         </div>
       </div>
 
-      <div class="row row-task">
+      <div class="row row-task" tabindex="-1">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
         <div class=text-area>
-          <input class="text-field" type="text" tabindex="5">
+          <input class="text-field" type="text">
         </div>
         <div class="timing-area">
           <div class="container-timeline">
@@ -104,10 +107,10 @@
         </div>
       </div>
 
-      <div class="row row-deadline">
+      <div class="row row-deadline" tabindex="-1">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
         <div class=text-area>
-          <input class="text-field" type="text" tabindex="6">
+          <input class="text-field-deadline" type="text">
         </div>
         <div class="timing-area">
           <div class="container-deadline">
@@ -118,6 +121,15 @@
 
     </div>
 
+  </div>
+
+  <div class="section-buttons">
+    <div class="button button-deadline">
+      <span>Deadline</span><ion-icon name="add-circle"></ion-icon>
+    </div>
+    <div class="button button-task">
+      <span>Task</span><ion-icon name="add-circle"></ion-icon>
+    </div>
   </div>
   
 </body>
