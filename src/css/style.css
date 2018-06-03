@@ -191,7 +191,7 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  padding: 10px 0px;
+  padding: 1px 0px;
   outline: none;
   transition: background 0.1s;
   border-radius: 5px;
@@ -267,36 +267,36 @@ body {
   cursor: pointer;
 }
 
-.color-red {
-  background: red;
-}
-
 .color-blue {
-  background: blue;
+  background: #3FA9E5
 }
 
 .color-green {
-  background: green;
-}
-
-.color-yellow {
-  background: yellow;
-}
-
-.color-grey {
-  background: grey;
-}
-
-.color-orange {
-  background: orange;
+  background: #37BC6F;
 }
 
 .color-purple {
-  background: purple;
+  background: #BB6BD9;
 }
 
-.color-pink {
-  background: pink;
+.color-dark-blue {
+  background: #2772D7;
+}
+
+.color-yellow {
+  background: #F3C843;
+}
+
+.color-orange {
+  background: #F2994A
+}
+
+.color-red {
+  background: #E54A4A;
+}
+
+.color-grey {
+  background: #828282;
 }
 
 .text-area {
