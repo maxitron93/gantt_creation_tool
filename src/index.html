@@ -12,8 +12,8 @@
 <body>
   <div class="section-settings">
     <div class="settings-top">
-      <h1 class="project-name">Project name</h1>
-      <h3 class="save"><input type="email", required, value="insert email"> <span class="btn-save">Save</span></h3>
+      <input class="project-name" type="text" value="Insert project name here">
+      <h3 class="save"><input type="email", required, value="insert email here"> <span class="btn-save">Save</span></h3>
     </div>
     <div class="settings-bottom">
       <div class="project-details">
@@ -33,14 +33,40 @@
     <div class="container-rows">
     
       
-      <div class="container-gidlines">
-        <div class="spacing"></div>
+      <div class="container-gridlines">
+        <div class="spacing">
+          <div class="label-date">11 Jun 2018</div>
+        </div>
         <div class="gridlines-outer">
           <div class="gridlines-inner">
-              <div class="one-gidline"></div>
-              <div class="one-gidline"></div>
-              <div class="one-gidline"></div>
-              <div class="one-gidline"></div>
+              <div class="major-gridline">
+                <div class="label-date">18 Jun 2018</div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+              </div>
+              <div class="major-gridline">
+                <div class="label-date">25 Jun 2018</div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+              </div>
+              <div class="major-gridline">
+                <div class="label-date">2 Jul 2018</div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+              </div>
+              <div class="major-gridline">
+                <div class="label-date">9 Jul 2018</div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+                <div class="minor-gridline"></div>
+              </div>
           </div>
         </div>
       </div>
@@ -48,30 +74,44 @@
 
       <div class="row row-task">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class="color-pallete">
+          <div class="color-option color-red"></div>
+          <div class="color-option color-blue"></div>
+          <div class="color-option color-green"></div>
+          <div class="color-option color-yellow"></div>
+          <div class="color-option color-grey"></div>
+          <div class="color-option color-orange"></div>
+          <div class="color-option color-purple"></div>
+          <div class="color-option color-pink"></div>
+        </div>
+        
         <div class=text-area>
           <input class="text-field" type="text">
         </div>
         <div class="timing-area">
           <div class="container-timeline">
-            <div class=timeline></div>
+            <div class="timeline"></div>
           </div>
         </div>
       </div>
 
       <div class="row row-task" tabindex="-1">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
         <div class=text-area>
           <input class="text-field" type="text">
         </div>
         <div class="timing-area">
           <div class="container-timeline">
-            <div class=timeline></div>
+            <div class="timeline"></div>
           </div>
         </div>
       </div>
 
       <div class="row row-deadline" tabindex="-1">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
         <div class=text-area>
           <input class="text-field-deadline" type="text">
         </div>
@@ -82,33 +122,113 @@
         </div>
       </div>
 
-
       <div class="row row-task" tabindex="-1">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
         <div class=text-area>
           <input class="text-field" type="text">
         </div>
         <div class="timing-area">
           <div class="container-timeline">
-            <div class=timeline></div>
+            <div class="timeline"></div>
           </div>
         </div>
       </div>
 
       <div class="row row-task" tabindex="-1">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
         <div class=text-area>
           <input class="text-field" type="text">
         </div>
         <div class="timing-area">
           <div class="container-timeline">
-            <div class=timeline></div>
+            <div class="timeline"></div>
           </div>
         </div>
       </div>
 
       <div class="row row-deadline" tabindex="-1">
         <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class=text-area>
+          <input class="text-field-deadline" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-deadline">
+            <div class="deadline"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-task">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class=text-area>
+          <input class="text-field" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class="timeline"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-task" tabindex="-1">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class=text-area>
+          <input class="text-field" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class="timeline"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-deadline" tabindex="-1">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class=text-area>
+          <input class="text-field-deadline" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-deadline">
+            <div class="deadline"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-task" tabindex="-1">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class=text-area>
+          <input class="text-field" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class="timeline"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-task" tabindex="-1">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class=text-area>
+          <input class="text-field" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class="timeline"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-deadline" tabindex="-1">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
         <div class=text-area>
           <input class="text-field-deadline" type="text">
         </div>

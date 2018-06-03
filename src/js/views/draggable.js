@@ -27,7 +27,7 @@ sortable.on('sortable:start', event => {
 sortable.on('drag:start', (event) => {
   const currentTarget = event.originalEvent.target;
   
-  if (isPrevented(currentTarget, ['text-field', 'timeline', 'deadline', 'btn-delete'])) {
+  if (isPrevented(currentTarget, ['text-field', 'timeline', 'deadline', 'btn-delete', 'text-field-deadline', 'color-picker', 'color-pallete'])) {
     event.cancel();
   }
 });

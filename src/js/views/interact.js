@@ -6,7 +6,7 @@ export const timelineInteraction = interact('.timeline')
   // enable snapping
   snap: {
     targets: [
-      interact.createSnapGrid({ x: 5, y: 1 })
+      interact.createSnapGrid({ x: 2, y: 1 })
     ],
     range: Infinity,
     relativePoints: [ { x: 0, y: 0 } ]
@@ -39,7 +39,7 @@ export const timelineInteraction = interact('.timeline')
   // enable snapping
   snap: {
     targets: [
-      interact.createSnapGrid({ x: 5, y: 5 })
+      interact.createSnapGrid({ x: 2, y: 2 })
     ],
     range: Infinity,
     relativePoints: [ { x: 0, y: 0 } ]
@@ -87,7 +87,7 @@ export const deadlineInteraction = interact('.deadline')
   // enable snapping
   snap: {
     targets: [
-      interact.createSnapGrid({ x: 5, y: 1 })
+      interact.createSnapGrid({ x: 2, y: 1 })
     ],
     range: Infinity,
     relativePoints: [ { x: 0, y: 0 } ]
