@@ -64,7 +64,7 @@ export const timelineInteraction = interact('.timeline')
   var target = event.target,
       x = (parseFloat(target.getAttribute('data-x')) || 0),
       y = (parseFloat(target.getAttribute('data-y')) || 0);
-
+      // console.log(target)
   // update the element's style
   target.style.width  = event.rect.width + 'px';
   // target.style.height = event.rect.height + 'px';
@@ -120,10 +120,11 @@ export const deadlineInteraction = interact('.deadline')
 // Function to enable dragging
 function dragMoveListener (event) {
   var target = event.target,
+  
       // keep the dragged position in the data-x/data-y attributes
       x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
       y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
+      // console.log(target)
   // translate the element
   target.style.webkitTransform =
   target.style.transform =

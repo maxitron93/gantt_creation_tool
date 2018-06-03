@@ -21,8 +21,10 @@
         <h3>End date <input class="date-field" type="date" required></h3>
       </div>
       <div class="display-settings">
-        <h3>Show main grid lines <ion-icon name="square-outline"></ion-icon></h3>
-        <h3>Show sub grid lines <ion-icon name="square-outline"></ion-icon></h3>
+        <h3>Show main grid lines <ion-icon name="checkbox" class="btn-main-gridlines"></ion-icon></h3>
+        <!-- <ion-icon name="square-outline" class="btn-main-gridlines"></ion-icon> -->
+        <h3>Show sub grid lines <ion-icon name="checkbox" class="btn-sub-gridlines"></ion-icon></h3>
+        <!-- <ion-icon name="square-outline" class="btn-sub-gridlines"></ion-icon> -->
         <h3>Row spacing <ion-icon name="remove-circle"></ion-icon><ion-icon name="add-circle"></ion-icon></h3>
       </div>
     </div>  
@@ -91,7 +93,7 @@
         </div>
         <div class="timing-area">
           <div class="container-timeline">
-            <div class="timeline"></div>
+            <div class="timeline" style="width: 200px; transform: translate(0px, 0px);" data-x="0"></div>
           </div>
         </div>
       </div>
@@ -114,7 +116,7 @@
         </div>
         <div class="timing-area">
           <div class="container-timeline">
-            <div class="timeline"></div>
+            <div class="timeline" style="width: 200px; transform: translate(0px, 0px);" data-x="0"></div>
           </div>
         </div>
       </div>
@@ -137,7 +139,7 @@
         </div>
         <div class="timing-area">
           <div class="container-deadline">
-            <div class="deadline"></div>
+            <div class="deadline" style="transform: translate(0px, 0px);" data-x="0"></div>
           </div>
         </div>
       </div>
@@ -160,7 +162,7 @@
         </div>
         <div class="timing-area">
           <div class="container-timeline">
-            <div class="timeline"></div>
+            <div class="timeline" style="width: 200px; transform: translate(0px, 0px);" data-x="0"></div>
           </div>
         </div>
       </div>
@@ -183,7 +185,7 @@
         </div>
         <div class="timing-area">
           <div class="container-timeline">
-            <div class="timeline"></div>
+            <div class="timeline" style="width: 200px; transform: translate(0px, 0px);" data-x="0"></div>
           </div>
         </div>
       </div>
@@ -206,145 +208,7 @@
         </div>
         <div class="timing-area">
           <div class="container-deadline">
-            <div class="deadline"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row-task" tabindex="-1">
-        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
-        <div class="color-picker"></div>
-        <div class="color-pallete">
-          <div class="color-option color-blue"></div>
-          <div class="color-option color-green"></div>
-          <div class="color-option color-purple"></div>
-          <div class="color-option color-dark-blue"></div>
-          <div class="color-option color-yellow"></div>
-          <div class="color-option color-orange"></div>
-          <div class="color-option color-red"></div>
-          <div class="color-option color-grey"></div>
-        </div>
-        <div class=text-area>
-          <input class="text-field" type="text">
-        </div>
-        <div class="timing-area">
-          <div class="container-timeline">
-            <div class="timeline"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row-task" tabindex="-1">
-        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
-        <div class="color-picker"></div>
-        <div class="color-pallete">
-          <div class="color-option color-blue"></div>
-          <div class="color-option color-green"></div>
-          <div class="color-option color-purple"></div>
-          <div class="color-option color-dark-blue"></div>
-          <div class="color-option color-yellow"></div>
-          <div class="color-option color-orange"></div>
-          <div class="color-option color-red"></div>
-          <div class="color-option color-grey"></div>
-        </div>
-        <div class=text-area>
-          <input class="text-field" type="text">
-        </div>
-        <div class="timing-area">
-          <div class="container-timeline">
-            <div class="timeline"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row-deadline" tabindex="-1">
-        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
-        <div class="color-picker"></div>
-        <div class="color-pallete">
-          <div class="color-option color-blue"></div>
-          <div class="color-option color-green"></div>
-          <div class="color-option color-purple"></div>
-          <div class="color-option color-dark-blue"></div>
-          <div class="color-option color-yellow"></div>
-          <div class="color-option color-orange"></div>
-          <div class="color-option color-red"></div>
-          <div class="color-option color-grey"></div>
-        </div>
-        <div class=text-area>
-          <input class="text-field-deadline" type="text">
-        </div>
-        <div class="timing-area">
-          <div class="container-deadline">
-            <div class="deadline"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row-task" tabindex="-1">
-        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
-        <div class="color-picker"></div>
-        <div class="color-pallete">
-          <div class="color-option color-blue"></div>
-          <div class="color-option color-green"></div>
-          <div class="color-option color-purple"></div>
-          <div class="color-option color-dark-blue"></div>
-          <div class="color-option color-yellow"></div>
-          <div class="color-option color-orange"></div>
-          <div class="color-option color-red"></div>
-          <div class="color-option color-grey"></div>
-        </div>
-        <div class=text-area>
-          <input class="text-field" type="text">
-        </div>
-        <div class="timing-area">
-          <div class="container-timeline">
-            <div class="timeline"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row-task" tabindex="-1">
-        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
-        <div class="color-picker"></div>
-        <div class="color-pallete">
-          <div class="color-option color-blue"></div>
-          <div class="color-option color-green"></div>
-          <div class="color-option color-purple"></div>
-          <div class="color-option color-dark-blue"></div>
-          <div class="color-option color-yellow"></div>
-          <div class="color-option color-orange"></div>
-          <div class="color-option color-red"></div>
-          <div class="color-option color-grey"></div>
-        </div>
-        <div class=text-area>
-          <input class="text-field" type="text">
-        </div>
-        <div class="timing-area">
-          <div class="container-timeline">
-            <div class="timeline"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row-deadline" tabindex="-1">
-        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
-        <div class="color-picker"></div>
-        <div class="color-pallete">
-          <div class="color-option color-blue"></div>
-          <div class="color-option color-green"></div>
-          <div class="color-option color-purple"></div>
-          <div class="color-option color-dark-blue"></div>
-          <div class="color-option color-yellow"></div>
-          <div class="color-option color-orange"></div>
-          <div class="color-option color-red"></div>
-          <div class="color-option color-grey"></div>
-        </div>
-        <div class=text-area>
-          <input class="text-field-deadline" type="text">
-        </div>
-        <div class="timing-area">
-          <div class="container-deadline">
-            <div class="deadline"></div>
+            <div class="deadline" style="transform: translate(0px, 0px);" data-x="0"></div>
           </div>
         </div>
       </div>
