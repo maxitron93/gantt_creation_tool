@@ -49,7 +49,7 @@ document.addEventListener('click', event => {
 
   // Event listerenr for toggling main grid lines
   else if (document.querySelector('.btn-main-gridlines').contains(event.target)) {
-    // Toggle border for major-gridline elements
+    // Toggle border for main-gridline elements
     toggleMainGridlines();
 
     // Render new button
@@ -58,7 +58,7 @@ document.addEventListener('click', event => {
 
   // Event listerenr for toggling sub grid lines
   else if (document.querySelector('.btn-sub-gridlines').contains(event.target)) {
-    // Toggle border for major-gridline elements
+    // Toggle border for main-gridline elements
     toggleSubGridlines();
 
     // Render new button
@@ -126,8 +126,8 @@ function updateGridlines() {
     renderGridlines(numberOfMainGridlines, numberOfSubGridlines);
 
     // Update date labels
-    let daysBetweenMajorGridlines = daysBetweenDates / numberOfMainGridlines
-    updateDateLabels(daysBetweenMajorGridlines);
+    let daysBetweenMainGridlines = daysBetweenDates / numberOfMainGridlines
+    updateDateLabels(daysBetweenMainGridlines);
     
 
   } else {

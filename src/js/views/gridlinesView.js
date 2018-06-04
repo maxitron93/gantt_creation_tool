@@ -1,7 +1,7 @@
 // Toggles main gridlines on and off
 export const toggleMainGridlines = () => {
-  // Toggles the borders of .major-gridline on and off
-  let gridlinesArray = Array.from(document.querySelectorAll('.major-gridline'));
+  // Toggles the borders of .main-gridline on and off
+  let gridlinesArray = Array.from(document.querySelectorAll('.main-gridline'));
   gridlinesArray.forEach((current, index, array) => {
     let currentStyle = current.style.borderRight
     if (currentStyle === "1px solid transparent") {
@@ -32,8 +32,8 @@ export const toggleMainBox = () => {
 
 // Toggles sub gridlines on and off
 export const toggleSubGridlines = () => {
-  // Toggles the borders of .minor-gridline on and off
-  let gridlinesArray = Array.from(document.querySelectorAll('.minor-gridline'));
+  // Toggles the borders of .sub-gridline on and off
+  let gridlinesArray = Array.from(document.querySelectorAll('.sub-gridline'));
   gridlinesArray.forEach((current, index, array) => {
     let currentStyle = current.style.borderRight
     if (currentStyle === "1px solid transparent") {
@@ -101,7 +101,7 @@ export const renderGridlines = (numberOfMainGridlines, numberOfSubGridlines) => 
   }
 }
 
-export const updateDateLabels = (daysBetweenMajorGridlines) => {
+export const updateDateLabels = (daysBetweenMainGridlines) => {
   let dateLabelArray = Array.from(document.querySelectorAll('.label-date'))
   dateLabelArray.forEach((current, index, array) => {
     
@@ -124,7 +124,7 @@ export const updateDateLabels = (daysBetweenMajorGridlines) => {
     // Update other labels
     else {
       let startDateInMS = Date.parse(new Date(document.querySelector('.date-field-start').value))
-      let dateInMS = startDateInMS + (daysBetweenMajorGridlines * (1000*60*60*24) * index)
+      let dateInMS = startDateInMS + (daysBetweenMainGridlines * (1000*60*60*24) * index)
       let dateAsString = new Date(dateInMS).toString()
       current.textContent = dateAsString.split(" ").slice(1, 4).join(" ")
     }
