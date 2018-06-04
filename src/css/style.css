@@ -12,9 +12,9 @@ body {
   padding: 30px;
   font-family: 'Open Sans', sans-serif;
   color: #4F4F4F;
-  max-width: 1600px;
-  min-width: 1350px;
+  width: 100%;
   margin: 0 auto;
+  height: 110vh
 }
 
 /****************************/
@@ -358,7 +358,8 @@ body {
 }
 
 .container-deadline {
-  width: 96%;
+  margin-left: 10px;
+  width: 95%;
 }
 
 .container-timeline {
@@ -372,6 +373,7 @@ body {
   width: 210px;
   margin-left: 90px;
   margin-top: 10px;
+  margin-bottom: 200px;
 }
 
 .button-deadline {

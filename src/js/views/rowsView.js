@@ -1,5 +1,5 @@
 // Add task row
-export const addTask = (rowSpacing, xStart, xWidth, color) => {
+export const addTask = (title, rowSpacing, xStart, xWidth, color) => {
   let markup = `
   <div class="row row-task" tabindex="-1" style="padding-top: ${rowSpacing}px; padding-bottom: ${rowSpacing}px;">
     <ion-icon name="close-circle" class="btn-delete"></ion-icon>
@@ -16,7 +16,7 @@ export const addTask = (rowSpacing, xStart, xWidth, color) => {
     </div>
     
     <div class=text-area>
-      <input class="text-field" type="text">
+      <input class="text-field" type="text" value="${title}">
     </div>
     <div class="timing-area">
       <div class="container-timeline">
@@ -30,7 +30,7 @@ export const addTask = (rowSpacing, xStart, xWidth, color) => {
 }
 
 // Add deadline row
-export const addDeadline = (rowSpacing, xStart, color) => {
+export const addDeadline = (title, rowSpacing, xStart, color) => {
   let markup = `
   <div class="row row-deadline" tabindex="-1" style="padding-top: ${rowSpacing}px; padding-bottom: ${rowSpacing}px;">
     <ion-icon name="close-circle" class="btn-delete"></ion-icon>
@@ -46,7 +46,7 @@ export const addDeadline = (rowSpacing, xStart, color) => {
       <div class="color-option color-grey"></div>
     </div>
     <div class=text-area>
-      <input class="text-field-deadline" type="text">
+      <input class="text-field-deadline" type="text" value="${title}">
     </div>
     <div class="timing-area">
       <div class="container-deadline">
@@ -91,6 +91,14 @@ export const reduceRowSpacing = () => {
       current.style.paddingBottom = `${currentSpacingBottom - 1}px`
     })
   }
+}
+
+export const setRowSpacing = (spacing) => {
+  let rowsArray = Array.from(document.querySelectorAll('.row'))
+  rowsArray.forEach((current) => {
+    current.style.paddingTop = `${spacing}px`
+    current.style.paddingBottom = `${spacing}px`
+  })
 }
 
 export const updateColor = (row, color) => {

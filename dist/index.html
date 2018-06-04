@@ -4,9 +4,229 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Gantt Planner</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+  
+  <title>Project Planner</title>
 </head>
 <body>
-  <h1>Hello!No!Maybe!Yay!Will this one work?Maybe</h1>
+  <div class="section-settings">
+    <div class="settings-top">
+      <input class="project-name" type="text" value="Insert project name here">
+      <h3 class="save"><span class="btn-save">Save</span></h3>
+    </div>
+    <div class="settings-bottom">
+      <div class="project-details">
+        <h3>Start date <input class="date-field date-field-start" type="date" value="2018-06-01" required></h3>
+        <h3>End date <input class="date-field date-field-end" value="2018-06-30" type="date" required></h3>
+      </div>
+      <div class="display-settings">
+        <h3>Show main grid lines <ion-icon name="checkbox" class="btn-main-gridlines"></ion-icon></h3>
+        <!-- <ion-icon name="square-outline" class="btn-main-gridlines"></ion-icon> -->
+        <h3>Show sub grid lines <ion-icon name="checkbox" class="btn-sub-gridlines"></ion-icon></h3>
+        <!-- <ion-icon name="square-outline" class="btn-sub-gridlines"></ion-icon> -->
+        <h3>Row spacing <ion-icon name="remove-circle" class="btn-reduce-spacing"></ion-icon><ion-icon name="add-circle" class="btn-increase-spacing"></ion-icon></h3>
+      </div>
+    </div>  
+  </div>
+
+  <div class="section-message" style="color: red; display: none;">Message</div>
+
+  <div class="section-chart">
+    
+    <div class="container-rows">
+    
+      
+      <div class="container-gridlines">
+        <div class="spacing">
+          <div class="label-date">11 Jun 2018</div>
+        </div>
+        <div class="gridlines-outer">
+          <div class="gridlines-inner">
+              <div class="main-gridline" style="width: 25%;">
+                <div class="label-date">18 Jun 2018</div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+              </div>
+              <div class="main-gridline" style="width: 25%;">
+                <div class="label-date">25 Jun 2018</div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+              </div>
+              <div class="main-gridline" style="width: 25%;">
+                <div class="label-date">2 Jul 2018</div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+              </div>
+              <div class="main-gridline" style="width: 25%;">
+                <div class="label-date">9 Jul 2018</div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+                <div class="sub-gridline" style="width: 20%;"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- <div class="row row-task" tabindex="-1" style="padding-top: 10px; padding-bottom: 10px;">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class="color-pallete">
+          <div class="color-option color-blue"></div>
+          <div class="color-option color-green"></div>
+          <div class="color-option color-purple"></div>
+          <div class="color-option color-dark-blue"></div>
+          <div class="color-option color-yellow"></div>
+          <div class="color-option color-orange"></div>
+          <div class="color-option color-red"></div>
+          <div class="color-option color-grey"></div>
+        </div>
+        
+        <div class=text-area>
+          <input class="text-field" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class="timeline" style="width: 200px; transform: translate(0px, 0px); background: #F2994A;" data-x="0"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-task" tabindex="-1" style="padding-top: 10px; padding-bottom: 10px;">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class="color-pallete">
+          <div class="color-option color-blue"></div>
+          <div class="color-option color-green"></div>
+          <div class="color-option color-purple"></div>
+          <div class="color-option color-dark-blue"></div>
+          <div class="color-option color-yellow"></div>
+          <div class="color-option color-orange"></div>
+          <div class="color-option color-red"></div>
+          <div class="color-option color-grey"></div>
+        </div>
+        <div class=text-area>
+          <input class="text-field" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class="timeline" style="width: 200px; transform: translate(0px, 0px); background: #F2994A;" data-x="0"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-deadline" tabindex="-1" style="padding-top: 10px; padding-bottom: 10px;">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class="color-pallete">
+          <div class="color-option color-blue"></div>
+          <div class="color-option color-green"></div>
+          <div class="color-option color-purple"></div>
+          <div class="color-option color-dark-blue"></div>
+          <div class="color-option color-yellow"></div>
+          <div class="color-option color-orange"></div>
+          <div class="color-option color-red"></div>
+          <div class="color-option color-grey"></div>
+        </div>
+        <div class=text-area>
+          <input class="text-field-deadline" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-deadline">
+            <div class="deadline" style="transform: translate(0px, 0px); background: #BB6BD9;" data-x="0"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-task" tabindex="-1" style="padding-top: 10px; padding-bottom: 10px;">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class="color-pallete">
+          <div class="color-option color-blue"></div>
+          <div class="color-option color-green"></div>
+          <div class="color-option color-purple"></div>
+          <div class="color-option color-dark-blue"></div>
+          <div class="color-option color-yellow"></div>
+          <div class="color-option color-orange"></div>
+          <div class="color-option color-red"></div>
+          <div class="color-option color-grey"></div>
+        </div>
+        <div class=text-area>
+          <input class="text-field" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class="timeline" style="width: 200px; transform: translate(0px, 0px); background: #F2994A;" data-x="0"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-task" tabindex="-1" style="padding-top: 10px; padding-bottom: 10px;">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class="color-pallete">
+          <div class="color-option color-blue"></div>
+          <div class="color-option color-green"></div>
+          <div class="color-option color-purple"></div>
+          <div class="color-option color-dark-blue"></div>
+          <div class="color-option color-yellow"></div>
+          <div class="color-option color-orange"></div>
+          <div class="color-option color-red"></div>
+          <div class="color-option color-grey"></div>
+        </div>
+        <div class=text-area>
+          <input class="text-field" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-timeline">
+            <div class="timeline" style="width: 200px; transform: translate(0px, 0px); background: #F2994A;" data-x="0"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-deadline" tabindex="-1" style="padding-top: 10px; padding-bottom: 10px;">
+        <ion-icon name="close-circle" class="btn-delete"></ion-icon>
+        <div class="color-picker"></div>
+        <div class="color-pallete">
+          <div class="color-option color-blue"></div>
+          <div class="color-option color-green"></div>
+          <div class="color-option color-purple"></div>
+          <div class="color-option color-dark-blue"></div>
+          <div class="color-option color-yellow"></div>
+          <div class="color-option color-orange"></div>
+          <div class="color-option color-red"></div>
+          <div class="color-option color-grey"></div>
+        </div>
+        <div class=text-area>
+          <input class="text-field-deadline" type="text">
+        </div>
+        <div class="timing-area">
+          <div class="container-deadline">
+            <div class="deadline" style="transform: translate(0px, 0px); background: #BB6BD9;" data-x="0"></div>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+
+  </div>
+
+  <div class="section-buttons">
+    <div class="button button-deadline">
+      <span>Deadline</span><ion-icon name="add-circle"></ion-icon>
+    </div>
+    <div class="button button-task">
+      <span>Task</span><ion-icon name="add-circle"></ion-icon>
+    </div>
+  </div>
+  
 <script type="text/javascript" src="js/bundle.js"></script></body>
 </html>
