@@ -84,12 +84,50 @@ export const renderGridlines = (numberOfMainGridlines, numberOfSubGridlines) => 
     <div class="main-gridline" style="width: ${mainGridlineWidth}%;"></div>
     `
     document.querySelector('.gridlines-inner').insertAdjacentHTML('afterbegin', mainGridlineMarkup)
+
+    // Render new sub gridlines
     for(let i = 0; i < numberOfSubGridlines; i++) {
       let subGridlineMarkup = `
       <div class="sub-gridline" style="width: ${subGridlineWidth}%;"></div>
       `
       document.querySelector('.main-gridline').insertAdjacentHTML('beforeend', subGridlineMarkup)
-  
     }
+
+    // Render new date labels
+    let dateMarkup = `
+    <div class="label-date">asd</div>
+    `
+    document.querySelector('.main-gridline').insertAdjacentHTML('beforeend', dateMarkup)
   }
 }
+
+export const updateDateLabels = (daysBetweenMajorGridlines) => {
+  let dateLabelArray = Array.from(document.querySelectorAll('.label-date'))
+  dateLabelArray.forEach((current, index, array) => {
+    
+    // Remove existing text
+    current.textContent = ""
+    
+    // Update the first label
+    if (index === 0) {
+      let startDate = new Date(document.querySelector('.date-field-start').value)
+      current.textContent = startDate.toString().split(" ").slice(1, 4).join(" ")
+      // current.textContent = startDate
+    }
+    
+    // Update the last label
+    else if (index === (array.length - 1)) {
+      let endDate = new Date(document.querySelector('.date-field-end').value)
+      current.textContent = endDate.toString().split(" ").slice(1, 4).join(" ")
+    }
+
+    // Update other labels
+    else {
+      let startDateInMS = Date.parse(new Date(document.querySelector('.date-field-start').value))
+      let dateInMS = startDateInMS + (daysBetweenMajorGridlines * (1000*60*60*24) * index)
+      let dateAsString = new Date(dateInMS).toString()
+      current.textContent = dateAsString.split(" ").slice(1, 4).join(" ")
+    }
+  })
+}
+

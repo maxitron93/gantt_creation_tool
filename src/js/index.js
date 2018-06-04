@@ -3,7 +3,7 @@ require('!style-loader!css-loader!../css/style.css')
 import { sortable, draggable } from './views/draggable'
 import { timelineInteraction, deadlineInteraction } from './views/interact'
 import { addTask, addDeadline, deleteRow, increaseRowSpacing, reduceRowSpacing, updateColor } from './views/rowsView'
-import { toggleMainGridlines, toggleSubGridlines, toggleMainBox, toggleSubBox, renderGridlines } from './views/gridlinesView'
+import { toggleMainGridlines, toggleSubGridlines, toggleMainBox, toggleSubBox, renderGridlines, updateDateLabels } from './views/gridlinesView'
 import { calculateMainGridlines, calculateSubGridlines } from './models/GridlineModel'
 
 // loadObject = {
@@ -111,8 +111,8 @@ function updateGridlines() {
   let endDate = new Date(document.querySelector('.date-field-end').value)
   let daysBetweenDates = (endDate - startDate)/(1000*60*60*24)
   
-  // Check if days between dates is between 2 and 1095 days
-  if (daysBetweenDates >= 2 && daysBetweenDates <= 1095) {
+  // Check if days between dates is between 3 and 1095 days
+  if (daysBetweenDates >= 3 && daysBetweenDates <= 1095) {
     // Get rid of error message
     document.querySelector('.section-message').style.display = "none"
 
@@ -125,14 +125,17 @@ function updateGridlines() {
     // Render gridlines
     renderGridlines(numberOfMainGridlines, numberOfSubGridlines);
 
-    // Render new dates
+    // Update date labels
+    let daysBetweenMajorGridlines = daysBetweenDates / numberOfMainGridlines
+    updateDateLabels(daysBetweenMajorGridlines);
+    
 
   } else {
     // Display error message
     let messageArea = document.querySelector('.section-message')
     messageArea.style.display = "block"
-    if (daysBetweenDates < 2 && daysBetweenDates >= 0) {
-      messageArea.textContent = "Minimum of two days"
+    if (daysBetweenDates < 3 && daysBetweenDates >= 0) {
+      messageArea.textContent = "Minimum of three days"
     } else if (daysBetweenDates < 0 || isNaN(daysBetweenDates)) {
       messageArea.textContent = "Error. Please check that the end date is after the start date and that both dates exist"
     } else if (daysBetweenDates > 1095) {
