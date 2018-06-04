@@ -123,6 +123,18 @@ body {
 }
 
 /****************************/
+/**********SECTION MESSAGE**********/
+/****************************/
+.section-message {
+  text-align: center;
+  border: 2px solid rgb(0, 68, 131);
+  padding: 20px;
+  border-radius: 5px;
+  width: 80%;
+  margin: 35px auto 0 auto;
+}
+
+/****************************/
 /*******SECTION CHART*******/
 /****************************/
 .section-chart {
@@ -159,19 +171,17 @@ body {
   height: 100%;
 }
 
-.major-gridline {
+.main-gridline {
   position: relative;
   display: inline-block;
   margin-right: -4px;
-  width: 25%;
   height: 100%;
   border-right: 1px solid #4F4F4F;
 }
 
-.minor-gridline {
-  display: inline-block;
+.sub-gridline {
   margin-right: -4px;
-  width: 20%;
+  display: inline-block;
   height: 100%;
   border-right: 1px solid rgb(209, 209, 209);
 }
