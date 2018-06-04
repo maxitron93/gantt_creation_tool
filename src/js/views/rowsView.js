@@ -60,8 +60,11 @@ export const addDeadline = (rowSpacing, xStart, color) => {
 
 // Delete row
 export const deleteRow = (button) => {
-let row = button.parentNode
-row.parentNode.removeChild(row)
+  // Tests is there are are least two or more rows
+  if (Array.from(document.querySelectorAll('.row')).length >= 2) {
+    let row = button.parentNode
+    row.parentNode.removeChild(row)
+  }
 }
 
 export const increaseRowSpacing = () => {

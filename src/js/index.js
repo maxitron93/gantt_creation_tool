@@ -28,13 +28,10 @@ import { toggleMainGridlines, toggleSubGridlines, toggleMainBox, toggleSubBox } 
 // }
 
 
-// 
-
 // All 'click' event listeners
 document.addEventListener('click', event => {
-  
   // Event listener for adding a deadline row
-  if(document.querySelector('.button-deadline').contains(event.target)) {
+  if (document.querySelector('.button-deadline').contains(event.target)) {
     let firstRow = document.querySelector('.row')
     let rowSpacing = parseInt(window.getComputedStyle(firstRow, null).paddingTop)
     // Render new deadline row
@@ -58,7 +55,7 @@ document.addEventListener('click', event => {
     toggleMainBox();
   }
 
-  // Event listerenr for toggling main grid lines
+  // Event listerenr for toggling sub grid lines
   else if (document.querySelector('.btn-sub-gridlines').contains(event.target)) {
     // Toggle border for major-gridline elements
     toggleSubGridlines();
@@ -79,15 +76,16 @@ document.addEventListener('click', event => {
     reduceRowSpacing();
   } 
   
-  else if (event.target.className.includes("color-option")) {
+  // Event listener for changing timeline or deadline color
+  else if (event.target.tagName !== "path" && event.target.tagName !== "svg" && event.target.className.includes("color-option")) {
     let row = event.target.parentNode.parentNode
     let color = window.getComputedStyle(event.target).backgroundColor
     // Change color of task or deadline
     updateColor(row, color);
   }
 
-  else {
-    // Event listener for deleting a row
+  // Event listener for deleting a row
+  else if(event.target.tagName === "path" || event.target.tagName === "svg") {
     let buttonsArray = Array.from(document.querySelectorAll('.btn-delete'));
     buttonsArray.forEach((current, index, array) => {
     if (current.contains(event.target)) {
@@ -95,12 +93,9 @@ document.addEventListener('click', event => {
       // Delete row
       deleteRow(button)
     }
-    })
+  })
   }
 })
-
-// Function to update gridlines when a date is changed
-
 
 
 // Event listener for updating dates
@@ -109,6 +104,7 @@ dateElementArray.forEach((current) => {
   current.addEventListener('input', updateGridlines)
 })
 
+// Function to update gridlines when a date is changed
 function updateGridlines() {
   let startDate = new Date(document.querySelector('.date-field-start').value)
   let endDate = new Date(document.querySelector('.date-field-end').value)
