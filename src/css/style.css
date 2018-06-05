@@ -67,6 +67,7 @@ body {
 .btn-save {
   padding: 3px 30px;
   background: #4F4F4F;
+  display: block;
   color: #F2F2F2;
   border-radius: 3px;
   cursor: pointer;
@@ -140,6 +141,65 @@ body {
 .section-chart {
   position: relative;
   margin-top: 60px;
+}
+
+.container-rows {
+  display: block;
+}
+
+/****************************/
+/*******SECTION LOADER*******/
+/****************************/
+.loader {
+  display: none;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  margin: 150px 0;
+  width: 100px;
+  height: 100px;
+  border: 3px solid white;
+  border-bottom: 3px solid #3FA9E5;
+  border-radius: 50%;
+  animation: animate 1.5s linear infinite;
+}
+
+.loader:before
+{
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  border: 3px solid white;
+  border-bottom: 3px solid #37BC6F;
+  border-radius: 50%;
+  animation: animate 4s linear infinite;
+}
+
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  bottom: 22px;
+  right: 22px;
+  border: 3px solid white;
+  border-bottom: 3px solid #E54A4A;
+  border-radius: 50%;
+  animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+  0%
+  {
+      transform: rotate(0deg);
+  }
+  100%
+  {
+      transform: rotate(360deg);
+  }
 }
 
 /****************************/

@@ -5,6 +5,7 @@ import { timelineInteraction, deadlineInteraction } from './views/interact'
 import { addTask, addDeadline, deleteRow, increaseRowSpacing, reduceRowSpacing, setRowSpacing, updateColor } from './views/rowsView'
 import { toggleMainGridlines, toggleSubGridlines, toggleMainBox, toggleSubBox, renderGridlines, updateDateLabels } from './views/gridlinesView'
 import { calculateMainGridlines, calculateSubGridlines } from './models/GridlineModel'
+import { module } from './modules'
 
 const formatDate = (dateInMS) => {
   let year = ((new Date(dateInMS)).getYear() + 1900).toString()
@@ -19,48 +20,49 @@ const formatDate = (dateInMS) => {
   return(`${year}-${month}-${date}`)
 }
 
-let saveObject = {
-  containerWidth: null,
-  projectName: "",
-  startDate: null,
-  endDate: null,
-  rowSpacing: null,
-  rows: []
-}
 
-let loadObject = {
-  containerWidth: 1188,
-  projectName: "Test project load",
-  startDate: 1534204800000,
-  endDate: 1547596800000,
-  rowSpacing: 4,
-  rows: [
-    {type: "task", title: "kjhjkhkkjhjkh", xStart: 763, xWidth: 107, color: "rgb(187, 107, 217)"},
-    {type: "task", title: "v8i56v7i65v", xStart: 331, xWidth: 220, color: "rgb(63, 169, 229)"},
-    {type: "deadline", title: "ovol8v", xStart: 0, color: "rgb(243, 200, 67)"},
-    {type: "task", title: "ov85v", xStart: 0, xWidth: 99, color: "rgb(130, 130, 130)"},
-    {type: "task", title: "678457", xStart: 113, xWidth: 440, color: "rgb(243, 200, 67)"},
-    {type: "deadline", title: "cvo86vc5l86", xStart: 1108, color: "rgb(55, 188, 111)"},
-    {type: "deadline", title: "v5l87iv6", xStart: 1108, color: "rgb(39, 114, 215)"},
-    {type: "task", title: "lv876l786v87v6", xStart: 477, xWidth: 651, color: "rgb(55, 188, 111)"},
-    {type: "task", title: "l876b78b6o76", xStart: 996, xWidth: 132, color: "rgb(187, 107, 217)"},
-    {type: "task", title: "asd`asd`asd", xStart: 0, xWidth: 1129, color: "rgb(55, 188, 111)"},
-    {type: "deadline", title: "buyiv", xStart: 429, color: "rgb(187, 107, 217)"},
-    {type: "deadline", title: "vtiuy", xStart: 881, color: "rgb(187, 107, 217)"},
-    {type: "task", title: "vt", xStart: 254, xWidth: 436, color: "rgb(63, 169, 229)"},
-    {type: "deadline", title: "fcghfgh", xStart: 654, color: "rgb(187, 107, 217)"},
-    {type: "task", title: "ghfghdht", xStart: 724, xWidth: 403, color: "rgb(242, 153, 74)"},
-    {type: "deadline", title: "", xStart: 36, color: "rgb(229, 74, 74)"}
-  ]
-}
+// Get chart from api and load it
+const loadChart = async () => {
+  // Hide chart area
+  document.querySelector('.container-rows').style.display = "none"
 
+  // Show loader
+  document.querySelector('.loader').style.display = "block"
 
+  // Define loadObject
+  let loadObject = {
+    containerWidth: null,
+    projectName: "",
+    startDate: null,
+    endDate: null,
+    rowSpacing: null,
+    rows: []
+  }
 
-// Load chart
-const loadChart = () => {
+  // Get chart name
+  let chartName = window.location.href.split("=")[1]
+  if (chartName === undefined) {
+    chartName = "default"
+  }
+
   // Send request
+  let resultJSON =  await fetch(`http://p2pcollective.com/api/get_chart/${chartName}`);
+  // Parse results
+  let result = await resultJSON.json();
 
   // Update loadObject with requested information
+  loadObject. containerWidth = result.container_width;
+  loadObject.projectName = result.project_name;
+  loadObject.startDate = result.start_date;
+  loadObject.endDate = result.end_date;
+  loadObject.rowSpacing = result.row_spacing;
+  loadObject.rows = result.rows
+
+  // Remove loader
+  document.querySelector('.loader').style.display = "none"
+
+  // Show chart area
+  document.querySelector('.container-rows').style.display = "block"
 
   // Render chart
   let currentContainerWidth = (document.querySelector('.container-rows').offsetWidth - 330)
@@ -69,7 +71,14 @@ const loadChart = () => {
   // 2. Set dates
   document.querySelector('.date-field-start').value = formatDate(loadObject.startDate)
   document.querySelector('.date-field-end').value = formatDate(loadObject.endDate)
-  // 3. Render rows
+
+  // 3. Remove old rows
+  let rowsArray = Array.from(document.querySelectorAll('.row'))
+  rowsArray.forEach((current) => {
+    current.parentNode.removeChild(current)
+  })
+  
+  // 4. Render rows
   loadObject.rows.forEach((current) => {
     if (current.type === "task") {
       let xStart = current.xStart * ( currentContainerWidth / loadObject.containerWidth)
@@ -87,66 +96,124 @@ const loadChart = () => {
 
 loadChart();
 
-
-
-
 // All 'click' event listeners
 document.addEventListener('click', async (event) => {
   // Event listener for save button
   if (event.target === document.querySelector('.btn-save')) {
-    // Store data in saveObject
-    // 1. Store container width
-    saveObject.containerWidth = document.querySelector('.container-rows').offsetWidth - 330
-    // 2. Store project name
-    saveObject.projectName = document.querySelector('.project-name').value
-    // 3. Store start date
-    saveObject.startDate = Date.parse(new Date(document.querySelector('.date-field-start').value))
-    // 4. Store end date
-    saveObject.endDate = Date.parse(new Date(document.querySelector('.date-field-end').value))
-    // 5. Store row spacing value
-    saveObject.rowSpacing = parseInt(document.querySelector('.row').style.paddingTop)
-    // 6. Store rows
-    saveObject.rows = [] // Delete any previous save data
+    try {
+      // Disable the save button
+      document.querySelector('.btn-save').style.display = "none";
 
-    let rowsArray = Array.from(document.querySelectorAll('.row'))
-    rowsArray.forEach((current) => {
-      // For task rows
-      if (current.className.includes("row-task")) {
-        saveObject.rows.push({
-          type: "task",
-          title: current.querySelector('.text-field').value,
-          xStart: parseInt(current.querySelector('.timeline').dataset.x),
-          xWidth: parseInt(current.querySelector('.timeline').offsetWidth),
-          color: current.querySelector('.timeline').style.backgroundColor
-        })
-        // For deadline rows
-      } else if (current.className.includes("row-deadline")) {
-        saveObject.rows.push({
-          type: "deadline",
-          title: current.querySelector('.text-field-deadline').value,
-          xStart: parseInt(current.querySelector('.deadline').dataset.x),
-          color: current.querySelector('.deadline').style.backgroundColor
-        })
-      }    
-    })
+      // Define saveObject
+      let saveObject = {
+        module: module,
+        containerWidth: null,
+        projectName: "",
+        startDate: null,
+        endDate: null,
+        rowSpacing: null,
+        rows: []
+      }
+      
+      // Store data in saveObject
+      // 1. Store container width
+      saveObject.containerWidth = document.querySelector('.container-rows').offsetWidth - 330
+      // 2. Store project name
+      saveObject.projectName = document.querySelector('.project-name').value
+      // 3. Store start date
+      saveObject.startDate = Date.parse(new Date(document.querySelector('.date-field-start').value))
+      // 4. Store end date
+      saveObject.endDate = Date.parse(new Date(document.querySelector('.date-field-end').value))
+      // 5. Store row spacing value
+      saveObject.rowSpacing = parseInt(document.querySelector('.row').style.paddingTop)
+      // 6. Store rows
+      saveObject.rows = [] // Delete any previous save data
+      let rowsArray = Array.from(document.querySelectorAll('.row'))
+      rowsArray.forEach((current) => {
+        // For task rows
+        if (current.className.includes("row-task")) {
+          saveObject.rows.push({
+            type: "task",
+            title: current.querySelector('.text-field').value,
+            xStart: parseInt(current.querySelector('.timeline').dataset.x),
+            xWidth: parseInt(current.querySelector('.timeline').offsetWidth),
+            color: current.querySelector('.timeline').style.backgroundColor
+          })
+          // For deadline rows
+        } else if (current.className.includes("row-deadline")) {
+          saveObject.rows.push({
+            type: "deadline",
+            title: current.querySelector('.text-field-deadline').value,
+            xStart: parseInt(current.querySelector('.deadline').dataset.x),
+            color: current.querySelector('.deadline').style.backgroundColor
+          })
+        }    
+      })
 
-    // Display message
-    document.querySelector('.section-message').style.display = "block"
-    document.querySelector('.section-message').style.color = "green"
-    document.querySelector('.section-message').textContent = "Saving your chart..."
+      // Hide the chart area
+      document.querySelector('.container-rows').style.display = "none"
 
-    // Send saveObject to API
-    console.log(saveObject)
+      // Show loader
+      document.querySelector('.loader').style.display = "block"
 
-    // await send data
-    
+      // Display saving message
+      document.querySelector('.section-message').style.display = "block"
+      document.querySelector('.section-message').style.color = "green"
+      document.querySelector('.section-message').textContent = "Saving your chart..."
 
-    // Display return message 
+      // Open connection with API
+      const xhr = new XMLHttpRequest();
+      await xhr.open("POST", "http://p2pcollective.com/api/save_chart");
 
+      // Send saveObject to API
+      await xhr.setRequestHeader("Content-Type", "application/json");
+      await xhr.send(JSON.stringify(saveObject));
+      console.log(saveObject)
+
+      // Await send data
+      let saveReturn
+      xhr.onload = function() {
+        // Hide loader
+        document.querySelector('.loader').style.display = "none"
+        
+        // Show the chart area
+        document.querySelector('.container-rows').style.display = "block"
+
+        // Display success message
+        saveReturn = JSON.parse(this.responseText)
+        console.log(saveReturn)
+        document.querySelector('.section-message').style.color = "green"
+        document.querySelector('.section-message').innerHTML = `<p>Your chart has been saved. To return to your chart, follow this link:
+        </br>
+        </br>
+        plan.maximerrillees.com/?chart=${saveReturn.chart_key}
+        </br>
+        </br>
+        PLEASE COPY-PASTE THAT LINK. THIS MESSAGE WILL DISSAPEAR IN 60 SECONDS.</p>
+        `
+        setTimeout(() => {
+          document.querySelector('.section-message').style.display = "none"
+          document.querySelector('.btn-save').style.display = "block";
+        }, 60000)
+      }
+    } catch(error) {
+      // Show the chart area
+      document.querySelector('.container-rows').style.display = "block"
+
+      // Display error message
+      document.querySelector('.section-message').style.display = "block"
+      document.querySelector('.section-message').style.color = "red"
+      document.querySelector('.section-message').textContent = "Something went wrong. Your chart did not save. This message will dissapear in 30 seconds."
+      setTimeout(() => {
+        document.querySelector('.section-message').style.display = "none"
+        document.querySelector('.btn-save').style.display = "block";
+      }, 30000)
+    }
+        
   }
   
   // Event listener for adding a deadline row
-  if (document.querySelector('.button-deadline').contains(event.target)) {
+  else if (document.querySelector('.button-deadline').contains(event.target)) {
     let firstRow = document.querySelector('.row')
     let rowSpacing = parseInt(window.getComputedStyle(firstRow, null).paddingTop)
     // Render new deadline row
@@ -209,6 +276,11 @@ document.addEventListener('click', async (event) => {
       deleteRow(button)
     }
   })
+  }
+
+  // This needs tobe here or text on the page can't be highlighted
+  else {
+    console.log("no event")
   }
 })
 
