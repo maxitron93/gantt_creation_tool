@@ -53,11 +53,6 @@ export const toggleSubBox = () => {
   }
 }
 
-
-
-
-
-
 export const renderGridlines = (numberOfMainGridlines, numberOfSubGridlines) => {
 
   // Delete all sub gridlines
@@ -76,7 +71,7 @@ export const renderGridlines = (numberOfMainGridlines, numberOfSubGridlines) => 
   let mainGridlineWidth = (Math.floor((100 / numberOfMainGridlines) * 1000)) / 1000
 
   // Calculate sub gridline width
-  let subGridlineWidth = (Math.floor((100 / (numberOfSubGridlines + 1)) * 1000)) / 1000
+  let subGridlineWidth = ((Math.ceil((100 / (numberOfSubGridlines + 1)) * 1000)) / 1000)
 
   // Render new main gridlines
   for(let i = 0; i < numberOfMainGridlines; i++) {

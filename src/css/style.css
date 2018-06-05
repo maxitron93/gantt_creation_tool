@@ -6,6 +6,7 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
+  font-size: 12px;
 }
 
 body {
@@ -13,8 +14,9 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #4F4F4F;
   width: 100%;
+  min-width: 990px;
   margin: 0 auto;
-  height: 110vh
+  min-height: 110vh
 }
 
 /****************************/
@@ -79,12 +81,12 @@ body {
 
 .project-details {
   display: inline-block;
-  width: 42%;
+  width: 45%;
 }
 
 .display-settings {
   display: inline-block;
-  width: 58%;
+  width: 55%;
   margin-left: -4px;
 }
 
@@ -103,7 +105,7 @@ body {
 }
 
 .date-field {
-  width: 140px;
+  width: 120px;
 }
 .display-settings {
   margin-left: -5px;
@@ -119,7 +121,7 @@ body {
 .display-settings ion-icon {
   font-size: 80%;
   margin: 0 7px;
-  transform: scale(1.7);
+  transform: scale(2.0);
   cursor: pointer;
 }
 
@@ -128,11 +130,19 @@ body {
 /****************************/
 .section-message {
   text-align: center;
-  border: 2px solid rgb(0, 68, 131);
+  border: 2px solid #A6CCFF;
   padding: 20px;
   border-radius: 5px;
   width: 80%;
   margin: 35px auto 0 auto;
+}
+
+.saved-url {
+  width: 40%;
+  border-radius: 5px;
+  padding: 3px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
 }
 
 /****************************/
@@ -234,13 +244,13 @@ body {
 .main-gridline {
   position: relative;
   display: inline-block;
-  margin-right: -4px;
+  margin-right: -3px;
   height: 100%;
   border-right: 1px solid #4F4F4F;
 }
 
 .sub-gridline {
-  margin-right: -4px;
+  margin-right: -3px;
   display: inline-block;
   height: 100%;
   border-right: 1px solid rgb(209, 209, 209);
@@ -250,7 +260,6 @@ body {
   right: 0;
   transform: translate(50%, 0);
   top: -25px;
-  font-size: 90%;
 }
 
 /****************************/
@@ -271,8 +280,9 @@ body {
   cursor: pointer;
   opacity: 0;
   position: absolute;
-  font-size: 150%;
-  padding-bottom: 5px;
+  font-size: 100%;
+  transform: scale(1.8);
+  padding-bottom: 2px;
   color: #CF1919;
   margin-left: 12px;
   transition: opacity 0.1s;
@@ -280,10 +290,14 @@ body {
 
 .color-picker {
   position: absolute;
-  height: 30px;
+  height: 29px;
   opacity: 0;
-  width: 30px;
-  background: #F2994A;
+  width: 29px;
+  background: #27AE60; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, orange, green, rgb(66, 66, 255), violet); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, orange, green, rgb(66, 66, 255), violet); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, orange, green, rgb(66, 66, 255), violet); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, orange, green, rgb(66, 66, 255), violet); /* Standard syntax (must be last) */
   border-radius: 4px;
   transition: opacity 0.1s;
   margin-left: 46px;
@@ -301,7 +315,7 @@ body {
 }
 
 .row:hover .color-picker {
-  opacity: 1;
+  opacity: 0.5;
   transition-delay: 0.05s
 }
 
@@ -390,6 +404,7 @@ body {
   border-style: none;
   border: 2px solid #4F4F4F;
   font-family: 'Open Sans', sans-serif;
+  font-size: 90%;
 }
 
 .text-field-deadline {
@@ -461,7 +476,7 @@ body {
 .section-buttons ion-icon {
   font-size: 90%;
   margin: 0 10px;
-  transform: scale(2);
+  transform: scale(2.0);
 }
 
 .button-deadline:hover {

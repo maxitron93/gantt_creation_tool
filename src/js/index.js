@@ -42,7 +42,7 @@ const loadChart = async () => {
   // Get chart name
   let chartName = window.location.href.split("=")[1]
   if (chartName === undefined) {
-    chartName = "default"
+    chartName = "85e96f12bd5102e7"
   }
 
   // Send request
@@ -186,7 +186,7 @@ document.addEventListener('click', async (event) => {
         document.querySelector('.section-message').innerHTML = `<p>Your chart has been saved. To return to your chart, follow this link:
         </br>
         </br>
-        plan.maximerrillees.com/?chart=${saveReturn.chart_key}
+        <input class="saved-url" type="text" value="plan.maximerrillees.com/?chart=${saveReturn.chart_key}" spellcheck="false">
         </br>
         </br>
         PLEASE COPY-PASTE THAT LINK. THIS MESSAGE WILL DISSAPEAR IN 60 SECONDS.</p>
@@ -277,13 +277,7 @@ document.addEventListener('click', async (event) => {
     }
   })
   }
-
-  // This needs tobe here or text on the page can't be highlighted
-  else {
-    console.log("no event")
-  }
 })
-
 
 // Event listener for updating dates
 const dateElementArray = [document.querySelector('.date-field-start'), document.querySelector('.date-field-end')]
@@ -329,3 +323,8 @@ function updateGridlines() {
     }
   }
 }
+
+// All 'click' event listeners
+document.addEventListener('mousedown', (event) => {
+  // event.preventDefault();
+})

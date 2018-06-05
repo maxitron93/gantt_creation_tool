@@ -45,7 +45,6 @@ const isPrevented = (element, classesToPrevent) => {
       currentElem = currentElem.parentElement;
     }
   }
-  
   return isParent;
 }
 // End of code to cancel the drag event when a child element is selected
