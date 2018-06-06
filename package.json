@@ -11,6 +11,9 @@
   "author": "Maxi Merrillees",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.21.0",
@@ -20,6 +23,7 @@
   },
   "dependencies": {
     "@shopify/draggable": "^1.0.0-beta.7",
+    "babel-polyfill": "^6.26.0",
     "interactjs": "^1.3.4"
   }
 }
