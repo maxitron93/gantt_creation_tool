@@ -1,12 +1,19 @@
+# [plan.maximerrillees.com](http://plan.maximerrillees.com/)
+![Final Website](readme_images/gantt_chart_tool.png)
+
 # Context
-The purpose of this project is to practice the JavaScript that I've learnt so far. My goal is to create a nicely designed one-page website that users can interact with.
+I built this Gantt chart tool over four days to practice the JavaScript that I had learnt. My goal was to create a nicely designed one-page website that users can interact with. I also wanted to add drag/drop/resize functionality.
 
-This website will allow users to create a gantt chart. Users should be able to build the chart by interacting directly with the elements on the screen, including by resizing the timelines and dragging and dropping the tasks.
+The website is built with CSS, HTML and vanilla  JavaScript, with the aid of two libraries for drag, drop and resize functionality:
+1. [draggable](https://shopify.github.io/draggable/)
+2. [interactjs](http://interactjs.io/)
 
-I've designed the website, so now I will build it. I will build the page with HTML, CSS and vanilla JavaScript (because I haven't learnt any JS frameworks yet).
+## Functionality
+This website allows users to create Gantt charts. Users are able to build the chart by interacting directly with the elements on the screen, including by resizing the timelines and dragging and dropping the tasks.
 
-## Proposed Design
+This website also connects to a back-end rails app to enable saving. When users click 'save', their chart's data will be sent to the back-end API and saved in a postgres database. Users can reload their website by visiting the link that the API returns.
+
+## Design
+I used [figma](https://www.figma.com/) to develop the design. I mostly stuck with the original design but made a few tweaks during development. Here is the original design:
+
 ![Proposed design](readme_images/proposed_design.png)
-
-# More to come...
-More to come...
